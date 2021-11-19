@@ -24,18 +24,25 @@ function spawnEntity(shape: Shape, x: number, y: number, z: number, rotation?: Q
 const sceneMessageBus = new MessageBus()
 const moveBoxEntity = spawnEntity(new BoxShape, 3, 1, 3)
 const box = new BoxShape()
-//  if this one is set then box is invisible
+
+box.withCollisions = false
 box.isPointerBlocker = false
 box.visible = true 
 const clickBox = spawnEntity(box, 5, 1, 3)
 
+const myMat = new Material()
+myMat.albedoColor = new Color4(1, 0, 0, 0.5)
+
+clickBox.addComponent(myMat)
+moveBoxEntity.addComponent(myMat)
+
 let c = 1
-moveBoxEntity.addComponent(
-  new OnPointerDown(() => {
-    c++
-    sceneMessageBus.emit("moveBox", {})
-  })
-)
+// moveBoxEntity.addComponent(
+//   new OnPointerDown(() => {
+//     c++
+//     sceneMessageBus.emit("moveBox", {})
+//   })
+// )
 
 clickBox.addComponent(
   new  OnPointerDown(() => {
