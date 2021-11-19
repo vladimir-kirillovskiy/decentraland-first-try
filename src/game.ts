@@ -24,8 +24,9 @@ function spawnEntity(shape: Shape, x: number, y: number, z: number, rotation?: Q
 const sceneMessageBus = new MessageBus()
 const moveBoxEntity = spawnEntity(new BoxShape, 3, 1, 3)
 const box = new BoxShape()
-
-box.withCollisions = false
+// this one just disables .isPointerBlocker
+// box.withCollisions = false
+//  if this one is set then box is invisible
 box.isPointerBlocker = false
 box.visible = true 
 const clickBox = spawnEntity(box, 5, 1, 3)
