@@ -6,4 +6,4 @@ function spawnEntity(shape: Shape, x: number, y: number, z: number, rotation?: Q
   return entity
 }
 
-const moveBoxEntity = spawnEntity(new BoxShape, 3, 1, 3)
+const moveBoxEntity = spawnEntity(new GLTFShape("models/coin.glb"), 3, 1, 3)
